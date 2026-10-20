@@ -5,9 +5,12 @@
   box-shadow: var(--shadow);
 }
 
-/* 不再在 CSS 里把卡片默认藏起来。
-   入场动画只是增强效果，交给 cards.js 在确认 anime.js 加载成功后再执行；
-   否则 CDN 被墙/超时的时候，所有 .card 会永远停在 opacity:0，页面看起来像坏了。 */
+/* 卡片的初始状态：藏起来 + 微微下沉，等动画把它们抬起来。
+   cards.js 在浏览器加载完后用 anime.js 给它们做 stagger 入场。 */
+.card {
+  opacity: 0;
+  transform: translateY(24px);
+}
 
 .section-kicker {
   margin-bottom: 12px;
